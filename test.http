@@ -1,0 +1,116 @@
+POST https://taskmanagedjango.onrender.com/create-task
+Content-Type: application/json
+
+{
+  "name": "Comprar passagem de Avião",
+  "description": "Comprar passagem de avião pra ir ver a Carine"
+}
+
+###
+POST https://taskmanagedjango.onrender.com/create-many-tasks
+Content-Type: application/json
+
+[
+  {
+    "name": "Comprar mantimentos",
+    "description": "Ir ao supermercado e comprar vegetais, frutas e carne para a semana."
+  },
+  {
+    "name": "Limpar o carro",
+    "description": "Lavar e aspirar o carro por dentro e por fora para mantê-lo limpo e organizado."
+  },
+  {
+    "name": "Estudar para o exame",
+    "description": "Revisar notas e materiais de estudo para se preparar para o exame de matemática."
+  },
+  {
+    "name": "Marcar consulta médica",
+    "description": "Ligar para o médico e agendar uma consulta para verificar os resultados dos exames."
+  },
+  {
+    "name": "Fazer exercícios",
+    "description": "Ir à academia ou fazer uma caminhada no parque para se exercitar e manter a saúde."
+  },
+  {
+    "name": "Ler um livro",
+    "description": "Passar uma hora lendo um livro interessante para relaxar e expandir os horizontes."
+  },
+  {
+    "name": "Assistir a um filme",
+    "description": "Escolher um filme para assistir com amigos ou familiares e preparar pipoca para acompanhar."
+  },
+  {
+    "name": "Preparar apresentação",
+    "description": "Rever os slides e ensaiar a apresentação para garantir que tudo esteja pronto para o dia seguinte."
+  },
+  {
+    "name": "Cozinhar um jantar especial",
+    "description": "Pesquisar uma nova receita e preparar um jantar especial para comemorar uma ocasião especial."
+  },
+  {
+    "name": "Organizar armários",
+    "description": "Limpar e organizar os armários da cozinha para encontrar utensílios mais facilmente."
+  },
+  {
+    "name": "Planejar viagem de férias",
+    "description": "Pesquisar destinos de viagem e reservar hotéis e passeios para as próximas férias em família."
+  },
+  {
+    "name": "Fazer compras online",
+    "description": "Navegar em lojas online e comprar roupas e acessórios para atualizar o guarda-roupa."
+  },
+  {
+    "name": "Aprender uma nova habilidade",
+    "description": "Iniciar um curso online para aprender a tocar um instrumento musical ou a programar em Python."
+  },
+  {
+    "name": "Cuidar das plantas",
+    "description": "Regar as plantas de casa e podar as folhas secas para mantê-las saudáveis e bonitas."
+  },
+  {
+    "name": "Praticar meditação",
+    "description": "Sentar-se em silêncio por alguns minutos e praticar técnicas de respiração para acalmar a mente."
+  },
+  {
+    "name": "Fazer um piquenique",
+    "description": "Preparar uma cesta com lanches e bebidas e ir para um parque fazer um piquenique ao ar livre."
+  },
+  {
+    "name": "Consertar objeto quebrado",
+    "description": "Reparar o vazamento na pia da cozinha ou consertar a tela do celular que está rachada."
+  },
+  {
+    "name": "Assistir a um concerto ao vivo",
+    "description": "Comprar ingressos para um concerto de música ao vivo e aproveitar a experiência com amigos."
+  },
+  {
+    "name": "Escrever em um diário",
+    "description": "Dedicar alguns minutos do dia para escrever os pensamentos e sentimentos em um diário pessoal."
+  },
+  {
+    "name": "Fazer voluntariado",
+    "description": "Procurar oportunidades de voluntariado na comunidade local e ajudar quem precisa."
+  }
+]
+
+###
+PATCH https://taskmanagedjango.onrender.com/update-task/31e06561-f390-4822-820f-90b577a77471
+Content-Type: application/json
+
+{
+  "done": true
+}
+
+###
+GET https://taskmanagedjango.onrender.com/task-list?page=1
+
+###
+DELETE https://taskmanagedjango.onrender.com/delete-many-tasks
+Content-Type: application/json
+
+{
+  "ids": ["641866f5-af85-4e2f-aa3a-1328c60e05bd"]
+}
+
+###
+GET https://taskmanagedjango.onrender.com/task/7cd3efa5dfb9493a83dd2696b0d23fe3
