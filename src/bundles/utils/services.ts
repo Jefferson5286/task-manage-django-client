@@ -6,10 +6,6 @@ export const TaskService = {
 
     getPaginatedList: async function(page: number) {
         const response: Response = await fetch(`${this.urlBase}/task-list?page=${page}`)
-        
-        if (response.status != 200) {
-            throw Error(`Failed to fetch task list. Status=${response.status}`)
-        }
         const data: TaskListObject = await response.json()
 
         return data
@@ -38,10 +34,6 @@ export const TaskService = {
                 done: true
             })
         })
-        if (response.status != 200) {
-            // noinspection ExceptionCaughtLocallyJS
-            throw Error(`Failed to update task ${id}`)
-        }
 
         const data: TaskItemObject = await response.json()
 
@@ -80,8 +72,6 @@ export const TaskService = {
             },
             body: JSON.stringify(body)
         })
-        if (response.status != 200) 
-            throw Error(`Failed to update task ${item.id}`)
         
         const data: TaskItemObject = await response.json()
 
@@ -103,8 +93,6 @@ export const TaskService = {
             },
             body: JSON.stringify(body)
         })
-
-        if (response.status != 200) throw Error ('Failed to create task')
         
         const data: TaskItemObject = await response.json()
         
@@ -112,12 +100,7 @@ export const TaskService = {
     },
     getTaskFromId: async function (id: string | undefined) {
         const response = await fetch(`${this.urlBase}/task/${id}`)
-        
-        if (response.status != 200) throw Error(`Failed to get task ${id}`)
-        
         const data: TaskItemObject = await response.json()
-
-         console.log(data)
 
         return data
     }

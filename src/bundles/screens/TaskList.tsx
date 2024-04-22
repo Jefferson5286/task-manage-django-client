@@ -79,24 +79,30 @@ export default function TaskList(): JSX.Element {
     }
 
     return (
-        <main>
-            <div>
-                <h1>Lista de Tarefas</h1>
-                <ul>
-                    {awaitTasks
-                        ? (<BigSpinner/>)
-                        : list.results.map((item: TaskItemObject) => (
-                            <TasKListItem data={item} key={item.id}/>
-                        ))}
-                </ul>
-                <div>
-                    <button onMouseUp={handlePreviousPage}>
-                        {!awaitPrevious ? 'Previous' : (<SmallSpinner/>)}
-                    </button>
-                    <button onMouseUp={handleNextPage}>
-                        {!awaitNext ? 'Next' : (<SmallSpinner/>)}
-                    </button>
-                </div>
+        <main className='MainContainerCentered'>
+            <h1>Lista de Tarefas</h1>
+            <ul className='TaskList'>
+                {awaitTasks
+                    ? (<BigSpinner/>)
+                    : list.results.map((item: TaskItemObject) => (
+                        <TasKListItem data={item} key={item.id}/>
+                    ))}
+            </ul>
+            <div className='TaskListButtonContainer'>
+                {
+                    list.previous !== null && (
+                        <button className='Button' onMouseUp={handlePreviousPage}>
+                            {!awaitPrevious ? 'Previous' : (<SmallSpinner/>)}
+                        </button>
+                    )
+                }
+                {
+                    list.next !== null && (
+                        <button className='Button' onMouseUp={handleNextPage}>
+                            {!awaitNext ? 'Next' : (<SmallSpinner/>)}
+                        </button>
+                    )
+                }
             </div>
         </main>
     )

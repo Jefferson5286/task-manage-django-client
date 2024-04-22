@@ -9,7 +9,7 @@ export default function App(): JSX.Element {
     return (
         <BrowserRouter>
             <nav>
-                <div>TaskManage Django</div>
+                <span>TaskManage Django</span>
                 <div>
                     <Link to='/'>Tarefas</Link>
                     <Link to='/editor'>Criar tarefa</Link>

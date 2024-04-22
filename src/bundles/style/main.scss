@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@0,100..900;1,100..900&display=swap');
+@import './vars';
+
 
 * {
   box-sizing: border-box;
@@ -10,3 +12,12 @@
 html {
   font-size: 12pt;
 }
+
+#root {
+  box-sizing: content-box;
+  padding-top: $nav_size;
+}
+
+@import './cls';
+@import './app/app';
+@import './app/task_list';

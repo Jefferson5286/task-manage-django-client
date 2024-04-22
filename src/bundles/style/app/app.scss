@@ -1,0 +1,26 @@
+@import '../vars.scss';
+
+nav {
+  display: flex;
+  position: fixed;
+  align-items: center;
+  top: 0;
+  left: 0;
+  justify-content: space-between;
+  padding: 0 2rem;
+  height: $nav_size;
+  width: 100vw;
+  background-color: $theme_cls_primary;
+  color: $theme_cls_secondary;
+  z-index: 1;
+  a {
+    color: $theme_cls_primary_link;
+    &:active {
+      color: $theme_cls_secondary;
+    }
+  }
+  div {
+    display: flex;
+    gap: 1.5rem;
+  }
+}

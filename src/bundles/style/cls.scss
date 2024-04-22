@@ -1,0 +1,74 @@
+@import './vars';
+
+
+.MainContainerCentered {
+  display: flex;
+  flex-direction: column;
+  height: calc(100% - $nav_size);
+  align-items: center;
+  box-sizing: content-box;
+  h1 {
+    text-align: center;
+    padding: 1.5rem 0 1rem 0;
+  }
+}
+
+.TaskStatusWidget {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  div {
+    height: .6rem;
+    width: .6rem;
+    border-radius: 50%;
+  }
+}
+
+.StatusFinished {
+  background-color: lawngreen;
+}
+
+.StatusNoFinished {
+  background-color: red;
+}
+
+.Button {
+  box-sizing: border-box;
+  height: 2.25rem;
+  border: none;
+  outline: none;
+  border-radius: .25rem;
+  font-size: .75rem;
+  transition: all 200ms ease-in-out;
+}
+
+.FinishedButtonStyle {
+  opacity: 25%;
+}
+
+.SmallSpin {
+  height: .5rem;
+  width: .5rem;
+  border-radius: 50%;
+  border: 1rem solid $theme_cls_primary_link;
+  border-top-color: transparent;
+  animation: spin 1s ease-in-out infinite;
+}
+
+@keyframes Spin {
+  0% {
+    transform: rotate(0deg);
+  }
+  25% {
+    transform: rotate(90deg);
+  }
+  50% {
+    transform: rotate(180deg);
+  }
+  75% {
+    transform: rotate(270deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}

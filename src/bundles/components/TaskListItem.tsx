@@ -56,22 +56,22 @@ export default function TasKListItem(props: TaskListItemProps): JSX.Element {
 
     return (<>
         {!isDeleted && (
-            <li key={props.data.id}>
-                <div>
-                    <div/>
+            <li key={props.data.id} className='TaskListItem'>
+                <div className='TaskStatusWidget'>
+                    <div className={isFinished ? 'StatusFinished' : 'StatusNoFinished'}/>
                 </div>
-                <div onMouseUp={handleRedirectToShow}>
+                <div onMouseUp={handleRedirectToShow} className='TaskListItemDetails'>
                     <div>{props.data.name}</div>
                     <div>{description}</div>
                     <div>{created_at} | {finished_at}</div>
                 </div>
-                <div>
-                    <button onMouseUp={handleRedirectToEditor}>Editar</button>
+                <div className='TaskListItemButtonContainer'>
+                    <button className={'Button'} onMouseUp={handleRedirectToEditor}>Editar</button>
                     <div>
-                        <button onMouseUp={handleUpdateStatus}>{
+                        <button className={`Button ${isFinished && 'FinishedButtonStyle'}`} onMouseUp={handleUpdateStatus}>{
                             !isFinished ? (<HandleNoFinishedTask/>) : 'Concluída'
                         }</button>
-                        <button onMouseUp={handleDeleteTask}>{
+                        <button className={'Button'} onMouseUp={handleDeleteTask}>{
                             awaitDeletion ? <SmallSpinner/> : 'Excluir'
                         }</button>
                     </div>
