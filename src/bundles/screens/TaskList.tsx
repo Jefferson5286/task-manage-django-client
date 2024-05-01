@@ -7,6 +7,7 @@ import {TaskService} from '../utils/services.ts'
 
 import TasKListItem from '../components/TaskListItem.tsx'
 import {Link} from "react-router-dom";
+import {TaskListProviderProps} from "../shared/props.ts";
 
 
 export default function TaskList(): JSX.Element {
@@ -79,7 +80,7 @@ export default function TaskList(): JSX.Element {
         }
     }
 
-    function List(props) {
+    function List(props: TaskListProviderProps) {
         return <>
             {
                 props.list.results.length > 0 ? (

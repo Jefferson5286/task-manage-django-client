@@ -1,4 +1,4 @@
-import {TaskItemObject} from './objects.ts'
+import {TaskItemObject, TaskListObject} from './objects.ts'
 import {EditorIdParam} from './routesParams.ts'
 
 export interface TaskListItemProps {
@@ -13,4 +13,8 @@ export interface TaskShowItemProps {
 export interface EditorProps {
     params: EditorIdParam
     data?: TaskItemObject
+}
+
+export interface TaskListProviderProps {
+    list: TaskListObject
 }
