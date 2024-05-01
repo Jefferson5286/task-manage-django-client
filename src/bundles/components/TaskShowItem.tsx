@@ -45,29 +45,46 @@ export function TaskShowItem(props: TaskShowItemProps): JSX.Element {
     }
 
 
-    return (<div>
-        <h2>{props.data.name}</h2>
-        <div>id: {props.data.id}</div>
+    return (<div className='TaskShowItem Card'>
         <section>
+            <div>id: {props.data.id}</div>
             <div>
-                <div>{created_at}</div>
-                <div>{finished_at}</div>
+                <h4 className='TitleSpacing'>Nome</h4>
+                <p>{props.data.name}</p>
             </div>
-            <div className={isFinished ? 'TaskStatusWidgetFinished' : 'TaskStatusWidgetNoFinished'}/>
         </section>
         <section>
-            <h3>Descrição</h3>
+            <div>
+                <h4>Criação:</h4>
+                <span>{created_at}</span>
+            </div>
+            <div>
+                <h4>Prazo:</h4>
+                <span>{finished_at}</span>
+            </div>
+            <div>
+                <h4 className='TitleSpacing'>Status</h4>
+                <div className='TaskStatusWidget'>
+                    <span>{isFinished ? 'Concluída' : 'Pendente'}</span>
+                    <div className={isFinished ? 'StatusFinished' : 'StatusNoFinished'}/>
+                </div>
+            </div>
+        </section>
+        <section>
+            <h4 className='TitleSpacing'>Descrição</h4>
             <p>{props.data.description}</p>
         </section>
         <section>
-            <button onMouseUp={handleDeleteTaskButton}>
+            <button className='Button' onMouseUp={handleEditTaskButton}>Editar</button>
+            <button className='Button' onMouseUp={handleDeleteTaskButton}>
                 {!awaitDeletion ? 'Excluir' : (<SmallSpinner/>)}
             </button>
-            <button onMouseUp={handleEditTaskButton}>Editar</button>
             <button
                 onMouseUp={handleFinishTaskButton}
-                className={isFinished ? 'TaskFinishedButtonStyle' : 'TaskNoFinishedButtonStyle'}>
-
+                className={`
+                    Button
+                    ${isFinished && 'FinishedButtonStyle'}
+                `}>
                 {!isFinished ? (<HandleNoFinishedTask/>) : 'Concluída'}
             </button>
         </section>

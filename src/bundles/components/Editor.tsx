@@ -106,9 +106,9 @@ export default function Editor(props: EditorProps): JSX.Element {
         }
     }
 
-    return (<form>
-        <div>
-            <div>
+    return (<form className='TaskEditorForm Card'>
+        <section>
+            <div className='TextInput'>
                 <label htmlFor='name'>Nome</label>
                 <input
                     type='text'
@@ -119,7 +119,7 @@ export default function Editor(props: EditorProps): JSX.Element {
                     onChange={handleInputChange}
                 />
             </div>
-            <div>
+            <div className='TextInput'>
                 <label htmlFor='finished_at'>Prazo final</label>
                 <input
                     type='text'
@@ -134,33 +134,35 @@ export default function Editor(props: EditorProps): JSX.Element {
                 />
             </div>
             {id && (
-                <div>
-                    <div>Status de Tarefa</div>
+                <div className='RadioSelector'>
+                    <h4>Status de Tarefa</h4>
                     <div>
-                        <label htmlFor='pending'>Pendente</label>
-                        <input
-                            name='done'
-                            type='radio'
-                            defaultChecked={!formState.done}
-                            value='0'
-                            id='pending'
-                            onChange={handleInputChange}
-                        />
-                    </div>
-                    <div>
-                        <label htmlFor='concluded'>Concluído</label>
-                        <input
-                            name='done'
-                            type='radio'
-                            defaultChecked={formState.done}
-                            value='1'
-                            id='concluded'
-                            onChange={handleInputChange}
-                        />
+                        <div>
+                            <label htmlFor='pending'>Pendente</label>
+                            <input
+                                name='done'
+                                type='radio'
+                                defaultChecked={!formState.done}
+                                value='0'
+                                id='pending'
+                                onChange={handleInputChange}
+                            />
+                        </div>
+                        <div>
+                            <label htmlFor='concluded'>Concluído</label>
+                            <input
+                                name='done'
+                                type='radio'
+                                defaultChecked={formState.done}
+                                value='1'
+                                id='concluded'
+                                onChange={handleInputChange}
+                            />
+                        </div>
                     </div>
                 </div>
             )}
-            <div>
+            <div className='TextInput'>
                 <label htmlFor='description'>Descrição</label>
                 <textarea
                     name='description'
@@ -170,15 +172,17 @@ export default function Editor(props: EditorProps): JSX.Element {
                     onChange={handleTextareaChange}
                 />
             </div>
-        </div>
-        {id && (
-            <button onMouseUp={handleDeleteButton} type='button'>
-                {awaitDeletion ? (<SmallSpinner/>) : 'Deletar'}
+        </section>
+        <section>
+            <button className='Button' onMouseUp={handleCancelButton} type='button'>Cancelar</button>
+            {id && (
+                <button className='Button' onMouseUp={handleDeleteButton} type='button' value='delet'>
+                    {awaitDeletion ? (<SmallSpinner/>) : 'Deletar'}
+                </button>
+            )}
+            <button className='Button' onMouseUp={handleSaveButton} type='button'>
+                {awaitSave ? <SmallSpinner/> : 'Salvar'}
             </button>
-        )}
-        <button onMouseUp={handleCancelButton} type='button'>Cancelar</button>
-        <button onMouseUp={handleSaveButton} type='button'>
-            {awaitSave ? <SmallSpinner/> : 'Salvar'}
-        </button>
+        </section>
     </form>)
 }

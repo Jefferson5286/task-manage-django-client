@@ -1,5 +1,5 @@
 export function SmallSpinner(): JSX.Element {
-    return <div>...</div>
+    return <div className='SmallSpin'></div>
 }
 
 export function BigSpinner(): JSX.Element {

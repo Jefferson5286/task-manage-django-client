@@ -33,7 +33,7 @@ export default function TaskEditor(): JSX.Element {
         }
     }, [initialize, params.id]);
 
-    return <main>
+    return <main className='MainContainerCentered'>
         <h1>{params.id ? 'Editar tarefa' : 'Criar nova tarefa'}</h1>
         {
             !params.id

@@ -1,0 +1,57 @@
+@import '../vars';
+
+
+.TaskShowItem {
+  padding: 0 1rem;
+  width: 40rem;
+  section {
+    padding: 1rem;
+    &:nth-child(1) {
+      div:nth-child(1) {
+        background-color: transparentize($theme_cls_primary, .7);
+        font-size: .8rem;
+        width: max-content;
+        padding: .15rem .3rem;
+        border-radius: .5rem;
+        opacity: 60%;
+        margin-bottom: 1rem;
+        margin-left: auto;
+      }
+    }
+    &:nth-child(2) {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      div:nth-child(3) span {
+        margin-right: .5rem;
+      }
+    }
+    &:nth-child(4) {
+      display: flex;
+      width: 100%;
+      gap: 1rem;
+      justify-content: center;
+      border-top: solid .05rem transparentize(black, .75);
+      .Button {
+        width: 7rem;
+        font-weight: bold;
+        &:nth-child(1) {
+          background-color: transparent;
+          text-decoration: underline;
+        }
+        &:nth-child(2) {
+          background-color: transparentize(red, .25);
+          color: white;
+        }
+        &:nth-child(3) {
+          background-color: transparentize($theme_cls_primary, .15);
+          color: white;
+        }
+      }
+    }
+  }
+}
+
+.TitleSpacing {
+  margin-bottom: .25rem;
+}

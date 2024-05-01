@@ -35,7 +35,7 @@ export default function TaskShow(): JSX.Element {
     }, [initialize, params.id]);
 
 
-    return (<main>
+    return (<main className='MainContainerCentered'>
         <div>
             <h1>Tarefa</h1>
             {isLoaded

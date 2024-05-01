@@ -1,0 +1,38 @@
+.TaskEditorForm {
+  padding: 1.5rem;
+  min-width: 25rem;
+
+  section:nth-child(1) {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+  }
+  section:nth-child(2) {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 2rem;
+    border-top: solid .05rem transparentize(black, .75);
+    margin-top: 1.5rem;
+    padding-top: 1.5rem;
+  }
+  .Button {
+    width: 7rem;
+    font-weight: bold;
+    &:first-child {
+      background-color: transparent;
+    }
+    &:last-child {
+      background-color: transparentize($theme_cls_primary, .15);
+      color: white;
+    }
+    &[value='delet'] {
+      background-color: transparentize(red, .25);
+      color: white;
+    }
+  }
+  textarea {
+    height: 7rem;
+    padding: .5rem;
+  }
+}

@@ -6,6 +6,7 @@ import {TaskItemObject, TaskListObject} from '../shared/objects.ts'
 import {TaskService} from '../utils/services.ts'
 
 import TasKListItem from '../components/TaskListItem.tsx'
+import {Link} from "react-router-dom";
 
 
 export default function TaskList(): JSX.Element {
@@ -78,15 +79,28 @@ export default function TaskList(): JSX.Element {
         }
     }
 
+    function List(props) {
+        return <>
+            {
+                props.list.results.length > 0 ? (
+                    props.list.results.map((item: TaskItemObject) => (
+                        <TasKListItem data={item} key={item.id}/>
+                    ))
+                ) : (
+                    <div className='VoidList'>Sem tarefas, <Link to='/editor'>Criar tarefa</Link></div>
+                )
+            }
+        </>
+    }
+
     return (
         <main className='MainContainerCentered'>
             <h1>Lista de Tarefas</h1>
             <ul className='TaskList'>
                 {awaitTasks
                     ? (<BigSpinner/>)
-                    : list.results.map((item: TaskItemObject) => (
-                        <TasKListItem data={item} key={item.id}/>
-                    ))}
+                    : (<List list={list}/>)
+                }
             </ul>
             <div className='TaskListButtonContainer'>
                 {

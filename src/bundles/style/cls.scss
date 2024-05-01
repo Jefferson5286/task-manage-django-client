@@ -1,10 +1,48 @@
 @import './vars';
 
 
+.Card {
+  box-shadow: .1rem .1rem .2rem .15rem transparentize(black, .5%);
+  border-radius: .5rem;
+}
+
+.RadioSelector {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  gap: .5rem;
+  & > div {
+    display: flex;
+    gap: 2rem;
+    div {
+      display: flex;
+      gap: .5rem;
+      align-items: center;
+    }
+  }
+}
+
+.TextInput {
+  display: flex;
+  flex-direction: column;
+  gap: .5rem;
+  label {
+    font-weight: bold;
+  }
+  input, textarea {
+    outline: none;
+    border: .1rem lighten($theme_cls_primary, .5) solid;
+    height: 2rem;
+    padding: 0 0.5rem;
+    font-size: .9rem;
+    border-radius: .5rem;
+  }
+}
+
 .MainContainerCentered {
   display: flex;
   flex-direction: column;
-  height: calc(100% - $nav_size);
+  height: calc(100vh - $nav_size);
   align-items: center;
   box-sizing: content-box;
   h1 {
@@ -33,6 +71,9 @@
 }
 
 .Button {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   box-sizing: border-box;
   height: 2.25rem;
   border: none;
@@ -47,28 +88,20 @@
 }
 
 .SmallSpin {
-  height: .5rem;
-  width: .5rem;
-  border-radius: 50%;
-  border: 1rem solid $theme_cls_primary_link;
-  border-top-color: transparent;
-  animation: spin 1s ease-in-out infinite;
+  &:before {
+    content: '';
+    box-sizing: border-box;
+    height: 1rem;
+    width: 1rem;
+    border-radius: 50%;
+    border: .01rem solid #ccc;
+    border-top-color: orange;
+    animation: spinner .6s linear infinite;
+  }
 }
 
-@keyframes Spin {
-  0% {
-    transform: rotate(0deg);
-  }
-  25% {
-    transform: rotate(90deg);
-  }
-  50% {
-    transform: rotate(180deg);
-  }
-  75% {
-    transform: rotate(270deg);
-  }
-  100% {
+@keyframes spinner {
+  to {
     transform: rotate(360deg);
   }
 }

@@ -7,6 +7,17 @@ Content-Type: application/json
 }
 
 ###
+
+POST https://taskmanagedjango.onrender.com/create-task
+Content-Type: application/json
+
+{
+  "name": "Tarefa",
+  "description": "Minha descrição",
+  "finished_at": "4234-10-05"
+}
+
+###
 POST https://taskmanagedjango.onrender.com/create-many-tasks
 Content-Type: application/json
 

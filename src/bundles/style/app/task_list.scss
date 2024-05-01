@@ -18,6 +18,16 @@
   }
 }
 
+.VoidList {
+  display: flex;
+  align-items: center;
+  opacity: 80%;
+  height: 100%;
+  a {
+    color: darkorange;
+  }
+}
+
 .TaskListItemDetails {
   margin-right: 5rem;
   cursor: pointer;
